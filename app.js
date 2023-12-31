@@ -1,38 +1,15 @@
-const h1 = document.querySelector("div.hello:first-child h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+ 
+const HIDDEN_CLASSNAME = "hidden";
 
-function handleTitleClick() {
-  h1.classList.toggle("clicked");
-}
+function onLoginsubmit(info) {
+  info.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  const username = loginInput.value;
+  greeting.innerText = `Hello ${username}!`;
+  greeting.classList.toggle(HIDDEN_CLASSNAME)
+} 
 
-function handleMouseEnter() {
-  h1.innerHTML = "Mouse is here!";
-}
-
-function handleMouseLeave() {
-  h1.innerText = "Mouse is gone!";
-}
-
-function handleWindowResize() {
-  document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-  alert("copier!");
-}
-
-function handleWindowOffline() {
-  alert("SOS no WIFI");
-}
-
-function handleWindowOnline() {
-  alert("ALL GOOD");
-}
-
-h1.addEventListener("click", handleTitleClick);
-h1.addEventListener("mouseenter", handleMouseEnter);
-h1.addEventListener("mouseleave", handleMouseLeave);
-
-window.addEventListener("resize", handleWindowResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOffline);
+loginForm.addEventListener("submit", onLoginsubmit);
