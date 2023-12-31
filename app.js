@@ -1,10 +1,7 @@
-const h1 = document.querySelector(".hello h1");
-
-console.dir(h1);
+const h1 = document.querySelector("div.hello:first-child h1");
 
 function handleTitleClick() {
-  console.log("title was clicked!");
-  h1.style.color = "blue";
+  h1.classList.toggle("clicked");
 }
 
 function handleMouseEnter() {
@@ -39,3 +36,5 @@ window.addEventListener("resize", handleWindowResize);
 window.addEventListener("copy", handleWindowCopy);
 window.addEventListener("offline", handleWindowOffline);
 window.addEventListener("online", handleWindowOffline);
+
+h1.addEventListener("click", handleTitleClick);
